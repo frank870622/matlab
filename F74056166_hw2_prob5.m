@@ -1,0 +1,12 @@
+RSE = 149600000;
+Ms = 1.98892*10^30;
+Me = 5.97219*10^24;
+L1 = RSE*(1-(Me/(3*(Ms+Me)))^(1/3));
+L2 = RSE*(1+(Me/(3*(Ms+Me)))^(1/3));
+L3 = -RSE*(1+(5*Me)/(12*(Ms+Me)));
+x = abs(L1/RSE);
+fprintf('The distance ratio of L1:%.6f \n',x);
+x = abs(L2/RSE);
+fprintf('The distance ratio of L2:%.6f \n',x);
+x = abs(L3/RSE);
+fprintf('The distance ratio of L3:%.6f \n',x);
