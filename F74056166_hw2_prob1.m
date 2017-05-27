@@ -3,7 +3,7 @@ y = 0;
 for i = 0:10^7-1
 y = y + (1/sqrt(1+2*sin(i*h)))*h;
 end
-fprintf('PROB1\n (i)%.8f \n',y);
+fprintf('(i)%.8f \n',y);
 
 h = 1/10^9;
 y = 0;
