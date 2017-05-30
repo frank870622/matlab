@@ -1,3 +1,4 @@
+%ploy 4-1 fraom-10 to 10
 x = -10:0.001:10;
 y = 0.5 + 0.25.*x -x.*sin(x) -0.5.*cos(2.*x);
 figure
@@ -5,13 +6,15 @@ plot(x,y);
 title('Prob.4(a)');
 grid on
 
+%Bisection Method
+%4-1
+%The smallest positive root of Prob.4(a)
 a = 1;
 b = 2;
 c(1) = 0.5 + 0.25*a -a*sin(a) -0.5*cos(2*a);
 c(2) = 0.5 + 0.25*b -b*sin(b) -0.5*cos(2*b);
-
 while abs(a-b)/abs(a) > 10^-9
-    e = (a+b)/2;
+    e = (a+b)/2; %¤G¤ÀÂI
     d = 0.5 + 0.25*e -e*sin(e) -0.5*cos(2*e);
     if d*c(1) > 0
         c(1) = d;
@@ -23,7 +26,8 @@ while abs(a-b)/abs(a) > 10^-9
 end
 fprintf('The smallest positive root of Prob.4(a) is %.9f \n',e);
 
-
+%Newton Raphson Method
+%The largest negative root of Prob.4(a)
 a = -4;
 b = -3;
 while abs(b-a)/abs(b) >10^-9
@@ -33,6 +37,7 @@ while abs(b-a)/abs(b) >10^-9
 end
 fprintf('The largest negative root of Prob.4(a) is  %.9f \n',c);
 
+%ploy 4-2 fraom-10 to 10
 x = -10:0.00001:10;
 y = exp(3.*x) -27.*(x.^6) + 27.*(x.^4).*exp(x) - 9.*(x.^2).*exp(2.*x);
 figure
@@ -40,7 +45,9 @@ plot(x,y);
 grid on
 title('Prob.4(b)');
 
-
+%Newton Raphson Method
+%4-2
+%The smallest positive root of Prob.4(b)
 a = 0.8;
 b = 1;
 while abs(b-a)/abs(b) >10^-9
@@ -51,7 +58,8 @@ end
 
 fprintf('The smallest positive root of Prob.4(b) is %.9f \n',c);
 
-
+%Newton Raphson Method
+%The largest negative root of Prob.4(b)
 a = -0.7;
 b = -0.2;
 while abs(b-a)/abs(b) >10^-9
