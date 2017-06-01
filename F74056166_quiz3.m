@@ -1,0 +1,7 @@
+F74056166_quiz3_prob7
+F74056166_quiz3_prob6
+F74056166_quiz3_prob5
+F74056166_quiz3_prob4
+F74056166_quiz3_prob3
+F74056166_quiz3_prob2
+F74056166_quiz3_prob1
