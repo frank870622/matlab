@@ -18,5 +18,5 @@ I1 = (a(1,4) - a(1,3)*I3 - a(1,2)*I2)/a(1,1);
 %}
 %I5 = I3-I2
 I5 = I3-I2;
-fprintf('Use Gauss elimination\n',I5);
+fprintf('Use Gauss elimination\n');
 fprintf('I5 = %.4f A\n',I5);
