@@ -104,7 +104,7 @@ y0 = 0;
 T = 2*pi*r/vy0;  
 figure
 hold on
-for i = 1:5000
+for i = 1:2000
     ax = -G*M*x0/((x0^2)+(y0^2))^(3/2);
     ay = -G*M*y0/((x0^2)+(y0^2))^(3/2);
     vx = vx0 + ax0*(T/365);
@@ -115,10 +115,6 @@ for i = 1:5000
     ay0 = ay;
     vx0 = vx;
     vy0 = vy;
-    if x > x0
-        KK = x;
-        break;
-    end
     x0 = x;
     y0 = y;
     plot(x,y,'b.');

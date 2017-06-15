@@ -31,7 +31,7 @@ legend('Vs','Vr');
 I0 = 0;
 dI0 = 0;
 ddI0 = 0;
-h = 0.00001;
+h = 0.000001;
 figure
 hold on
 for t = 0:h:0.01
