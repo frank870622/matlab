@@ -1,13 +1,15 @@
-e = 1.66*410^-21;
+e = 1.66*410^-21;                       %Lennard-Jones
 a = 3.4*10^-10;
-xmax = 2*10^-9;
+xmax = 2*10^-9;                         %the x,y area of this simulation 
 xmin = -2*10^-9;
 ymax = 2*10^-9;
 ymin = -2*10^-9;
-m = 40*1.660539*10^-27;
-x1 = 2.5*10^-10;
+m = 40*1.660539*10^-27;                 %mass of an Argon atom
+
+
+x1 = 2.5*10^-10;                        %position
 x2 = -2.5*10^-10;
-v1 = 0;
+v1 = 0;                                 %speed
 v2 = 0;
 y1 = 0;
 y2 = 0;
@@ -17,8 +19,8 @@ h = 10^8;
 figure
 hold on
 for t = 0:h:10^11
-    r = abs(x1-x2);
-    a1 = 4*e*(12*(a^12)/(r^13) - 6*(a^6)/r^7)*r/m*(x2-x1)/r;
+    r = abs(x1-x2);                                                 %the distance of two atoms
+    a1 = 4*e*(12*(a^12)/(r^13) - 6*(a^6)/r^7)*r/m*(x2-x1)/r;        %the F of two atoms
     a2 = 4*e*(12*(a^12)/(r^13) - 6*(a^6)/r^7)*r/m*(x1-x2)/r;
     v1 = v1 + a1*h;
     v2 = v2 + a2*h;
@@ -26,13 +28,13 @@ for t = 0:h:10^11
     X2 = x2 + v2*h;
     x1 = X1;
     x2 = X2;
-    if (x1 > xmax) || (x1 < xmin)
+    if (x1 > xmax) || (x1 < xmin)                                   %if atom reach the edge,its v need to change
         v1 = -v1;
     end
     if (x2 > xmax) || (x2 < xmin)
         v2 = -v2;
     end
-    total = 0.5*m*v1*v1 + 0.5*m*v2*v2;
+    total = 0.5*m*v1*v1 + 0.5*m*v2*v2;                              %the energy
     plot(t,total,'k.');
 end
 hold off
@@ -42,25 +44,27 @@ ylabel('total energy');
 
 
 %(b)
-x1 = -2*10^-9;
+x1 = -2*10^-9;              %position
 x2 = 0;
 x3 = 0;
 y1 = 0;
 y2 = 1.9082*10^-10;
 y3 = -1.9082*10^-10;
-v1x = 300;
+
+v1x = 300;                  %speed
 v1y = 0;
 v2x = 0;
 v2y = 0;
 v3x = 0;
 v3y = 0;
+
 h = 10^6;
 figure
 hold on
 for t = 0:h:10^9
-    r12 = sqrt((x1-x2)^2 + (y1-y2)^2);
+    r12 = sqrt((x1-x2)^2 + (y1-y2)^2);          %the distance of three atoms
     r13 = sqrt((x1-x3)^2 + (y1-y3)^2);
-    r23 = sqrt((x2-x3)^2 + (y2-y3)^2);
+    r23 = sqrt((x2-x3)^2 + (y2-y3)^2);                                                              %the F of two atoms
     a1x = 4*e*(12*(a^12)/(r12^13) - 6*(a^6)/r12^7)*r12/m*(x2-x1)/r12 + 4*e*(12*(a^12)/(r13^13) - 6*(a^6)/r13^7)*r13/m*(x3-x1)/r13;
     a1y = 4*e*(12*(a^12)/(r12^13) - 6*(a^6)/r12^7)*r12/m*(y2-y1)/r12 + 4*e*(12*(a^12)/(r13^13) - 6*(a^6)/r13^7)*r13/m*(y3-y1)/r13;
     a2x = 4*e*(12*(a^12)/(r12^13) - 6*(a^6)/r12^7)*r12/m*(x1-x2)/r12 + 4*e*(12*(a^12)/(r23^13) - 6*(a^6)/r23^7)*r23/m*(x3-x2)/r23;
@@ -85,7 +89,7 @@ for t = 0:h:10^9
     y2 = Y2;
     x3 = X3;
     y3 = Y3;
-    if(x1 < xmin) || (x1 > xmax)
+    if(x1 < xmin) || (x1 > xmax)                %if atom reach the edge,its v need to change
         v1x = -v1x;
     end
     if(y1 < ymin) || (y1 > ymax)
@@ -112,11 +116,12 @@ xlabel('t');
 ylabel('total energy');
 
 %(c)
-x1 = 2.5*10^-10;
+x1 = 2.5*10^-10;                %position
 x2 = -2.5*10^-10;
 y1 = 0;
 y2 = 0;
-v1x = -15.8;
+
+v1x = -15.8;                    %speed
 v1y = 7.9;
 v2x = 15.8;
 v2y = 0;
@@ -125,8 +130,8 @@ h = 10^-11;
 figure
 hold on
 for t = 0:h:10^-8
-    r12 = sqrt((x1-x2)^2 + (y1-y2)^2);
-    a1x = 4*e*(12*(a^12)/(r12^13) - 6*(a^6)/r12^7)*r12/m*(x2-x1)/r12;
+    r12 = sqrt((x1-x2)^2 + (y1-y2)^2);                                      %the distance of two atoms
+    a1x = 4*e*(12*(a^12)/(r12^13) - 6*(a^6)/r12^7)*r12/m*(x2-x1)/r12;       %the F of two atoms
     a1y = 4*e*(12*(a^12)/(r12^13) - 6*(a^6)/r12^7)*r12/m*(y2-y1)/r12;
     a2x = 4*e*(12*(a^12)/(r12^13) - 6*(a^6)/r12^7)*r12/m*(x1-x2)/r12;
     a2y = 4*e*(12*(a^12)/(r12^13) - 6*(a^6)/r12^7)*r12/m*(y1-y2)/r12;
@@ -142,7 +147,7 @@ for t = 0:h:10^-8
     y1 = Y1;
     x2 = X2;
     y2 = Y2;
-    if(x1 < xmin) || (x1 > xmax)
+    if(x1 < xmin) || (x1 > xmax)                %if atom reach the edge,its v need to change
         v1x = -v1x;
     end
     if(y1 < ymin) || (y1 > ymax)
